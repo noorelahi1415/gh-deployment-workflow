@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hello, GitHub Actions!</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --muted: #8b949e;
+    --green: #3fb950;
+    --blue: #58a6ff;
+    --amber: #d29922;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(88, 166, 255, 0.06), transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(63, 185, 80, 0.06), transparent 40%);
+    font-family: ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, monospace;
+    color: var(--text);
+    padding: 24px;
+  }
+
+  .terminal {
+    width: 100%;
+    max-width: 620px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  }
+
+  .titlebar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: #0d1117;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+  }
+  .dot.red { background: #ff5f56; }
+  .dot.yellow { background: #ffbd2e; }
+  .dot.green { background: #27c93f; }
+
+  .titlebar span {
+    margin-left: 8px;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+
+  .body {
+    padding: 22px 20px 26px;
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .prompt { color: var(--muted); }
+  .cmd { color: var(--text); }
+  .ok { color: var(--green); }
+  .ok::before { content: "✓ "; }
+  .info { color: var(--blue); }
+  .tag { color: var(--amber); }
+
+  .line { white-space: pre-wrap; word-break: break-word; }
+
+  .hello {
+    margin-top: 18px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 17px;
+    background: var(--text);
+    margin-left: 6px;
+    vertical-align: -3px;
+    animation: blink 1s steps(1) infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  .footer {
+    margin-top: 22px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor { animation: none; }
+  }
+
+  @media (max-width: 480px) {
+    .body { font-size: 13px; }
+    .hello { font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="terminal">
+    <div class="titlebar">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+      <span>gh-deployment-workflow — main</span>
+    </div>
+
+    <div class="body">
+      <div class="line"><span class="prompt">$</span> <span class="cmd">git push origin main</span></div>
+      <div class="line"><span class="tag">[deploy.yml]</span> triggered on push to <span class="info">main</span></div>
+      <div class="line ok">Workflow started</div>
+      <div class="line ok">Checked out repository</div>
+      <div class="line ok">Uploaded index.html as Pages artifact</div>
+      <div class="line ok">Deployed to GitHub Pages</div>
+
+      <div class="hello">Hello, GitHub Actions!<span class="cursor"></span></div>
+
+      <div class="footer">
+        Every push to <b>main</b> that changes <b>index.html</b> redeploys this page automatically.
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

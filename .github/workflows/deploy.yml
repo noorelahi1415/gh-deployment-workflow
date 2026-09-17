@@ -1,0 +1,32 @@
+name: Delopy on Github Page
+
+on:
+   push:
+     branches: [main]
+     paths:
+       - 'index.html'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+
+jobs:
+   Deploy:
+      runs-on: ubuntu-latest
+      steps:
+        - name: checkout repository 
+          uses: actions/checkout@V4
+
+
+        - name: Setup pages
+          uses: actions/configure-pages@V4
+
+
+        - name: Upload artifact
+          uses: actions/upload-pages-artifact@v3
+          with:
+            path: '.'
+         - name: Deploy to GitHub Pages
+           uses: actions/deploy-pages@v4
